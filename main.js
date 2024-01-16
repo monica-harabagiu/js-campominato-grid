@@ -1,13 +1,12 @@
 const buttonPlayHtml = document.getElementById("play-button")
+const gridHtml = document.getElementById("grid")
+let difficoltaHtml = document.getElementById("difficolta")
 
-buttonPlayHtml.addEventListener("click", function () {
-
-    const gridHtml = document.getElementById("grid")
+function play(number, className) {
 
     gridHtml.classList.remove("hidden")
 
-
-    for (let i = 1; i <= 100; i++) {
+    for (let i = 1; i <= number; i++) {
 
         let box = document.createElement("div")
         // console.log(box)
@@ -15,6 +14,8 @@ buttonPlayHtml.addEventListener("click", function () {
         box.classList.add("box")
 
         box.innerHTML = `<span>${i}</span>`
+
+        box.classList.add(className)
 
 
         box.addEventListener("click", function () {
@@ -25,6 +26,21 @@ buttonPlayHtml.addEventListener("click", function () {
 
         gridHtml.append(box)
 
+    }
+}
+
+buttonPlayHtml.addEventListener("click", function () {
+
+    gridHtml.innerHTML = ""
+
+    let difficoltaScelta = difficoltaHtml.value
+
+    if (difficoltaScelta === "easy") {
+        play(100, "easy-box")
+    } else if (difficoltaScelta === "normal") {
+        play(81, "normal-box")
+    } else if (difficoltaScelta === "hard") {
+        play(49, "hard-box")
     }
 })
 

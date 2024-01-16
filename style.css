@@ -22,8 +22,20 @@ header {
     height: 80px;
 }
 
-header #header-all {
+header #header-left {
     gap: 20px;
+}
+
+header #header-right {
+    gap: 20px;
+    align-items: center;
+}
+
+header #header-right select {
+    padding: 5px 10px;
+    background-color: rgb(242, 242, 242);
+    border: 1px solid rgb(179, 179, 179);
+    border-radius: 5px;
 }
 
 header button {
@@ -52,13 +64,24 @@ main #grid {
 }
 
 main #grid .box {
-    flex-basis: calc(100%/10);
     border: 1px solid black;
     aspect-ratio: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1rem;
+}
+
+.easy-box {
+    flex-basis: calc(100%/10);
+}
+
+.normal-box {
+    flex-basis: calc(100%/9);
+}
+
+.hard-box {
+    flex-basis: calc(100%/7);
 }
 
 main #grid .clicked {
